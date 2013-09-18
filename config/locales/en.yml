@@ -23,3 +23,10 @@ en:
   hello: "Hello world"
   app:
     title: "SimpleSupport"
+  sessions:
+    sign_in:
+      email: "Email"
+      title: "Sign in"
+      password: "Password"
+    sign_up:
+      title: "Sign up"
