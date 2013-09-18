@@ -2,20 +2,7 @@
 %html
   = render :partial => 'layouts/head'
   %body
-    .navbar.navbar-default
-      .container
-        .navbar-header
-          %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", type: "button"}
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
-          = link_to t('app.title'), root_path, class: 'navbar-brand'
-        .collapse.navbar-collapse
-          %ul.nav.navbar-nav.navbar-right
-            %li
-              = link_to t('sessions.sign_in.title'), new_user_session_path
-            %li
-              = link_to t('sessions.sign_up.title'), new_user_registration_path
-    .container
-      = render partial: 'shared/alerts'
-      = yield
+    .single-widget-container
+      %section.widget.login-widget
+        = render partial: 'shared/alerts'
+        = yield

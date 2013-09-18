@@ -1,23 +1,27 @@
 !!!
 %html
   = render :partial => 'layouts/head'
-  %body
-    .navbar.navbar-default
-      .container
-        .navbar-header
-          %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", type: "button"}
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
-          = link_to t('app.title'), root_path, class: 'navbar-brand'
-        .collapse.navbar-collapse
-          %ul.nav.navbar-nav.navbar-right
-            %li
-              = link_to t('sessions.sign_out.title'), destroy_user_session_path, method: :delete
-    .container
-      = render partial: 'shared/alerts'
-      = yield
-      %hr
-      %footer.text-center
-        %p
-          &copy; SimpleSupport
+  %body.background-dark
+    .logo
+      %h4= link_to t('app.title'), root_path
+
+    %nav.sidebar.nav-collapse.collapse
+      %ul.side-nav
+        %li.active
+          %a{href: ''} My Tickets
+        %li
+          %a{href: ''} Processing (test)
+        %li
+          %a{href: ''} Processing (production)
+
+    .wrap
+      %header.page-header
+        .navbar
+          .navbar-inner
+            %ul.nav.pull-right
+              %li.hidden-phone
+                = link_to destroy_user_session_path, method: :delete do
+                  %i.icon-signout
+      .content.container-fluid
+        = render partial: 'shared/alerts'
+        = yield
