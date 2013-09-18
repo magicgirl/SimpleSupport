@@ -30,3 +30,6 @@ en:
       password: "Password"
     sign_up:
       title: "Sign up"
+      email: "Email"
+      password: "Password"
+      password_confirmation: "Confirm password"
