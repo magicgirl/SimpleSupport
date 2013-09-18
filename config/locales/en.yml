@@ -19,3 +19,13 @@ en:
       submit: "Create"
     sign_out:
       title: "Sign out"
+  dashboard:
+    sidebar:
+      my_tickets: "My Tickets"
+      new_ticket: "New ticket"
+  tickets:
+    new:
+      title: "New ticket"
+      fields:
+        title: "Title"
+        message: "Message"

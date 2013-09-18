@@ -7,13 +7,10 @@
 
     %nav.sidebar.nav-collapse.collapse
       %ul.side-nav
-        %li.active
-          %a{href: ''} My Tickets
-        %li
-          %a{href: ''} Processing (test)
-        %li
-          %a{href: ''} Processing (production)
-
+        %li{class: sub_active('tickets#new')}
+          = link_to t('dashboard.sidebar.new_ticket'), new_ticket_path
+        %li{class: active('dashboard')}
+          = link_to t('dashboard.sidebar.my_tickets'), root_path
     .wrap
       %header.page-header
         .navbar

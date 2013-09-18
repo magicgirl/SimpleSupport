@@ -1,0 +1,18 @@
+.row-fluid
+  .span12
+    %section.widget
+      .body.no-margin
+        = form_for @ticket, url: tickets_path, html: {class: ''} do |f|
+          %legend= t('tickets.new.title')
+          %fieldset
+            .control-group
+              = f.label :title, t('tickets.new.fields.title'), class: 'control-label'
+              .controls
+                = f.text_field :title, class: 'input-block-level', placeholder: t('tickets.new.fields.title')
+            .control-group
+              = f.label :message, t('tickets.new.fields.message'), class: 'control-label'
+              .controls
+                = f.text_area :message, class: 'input-block-level wysiwyg', rows: 4
+          .form-actions
+            %div
+              %button.btn.btn-primary{type: "submit"} Create

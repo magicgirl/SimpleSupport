@@ -11,3 +11,4 @@
 //= require bootstrap-tooltip
 //= require bootstrap-popover
 //= require bootstrap-typeahead
+//= require ./bootstrap-wysihtml5

@@ -18,6 +18,7 @@ gem 'haml-rails'
 
 # Auth
 gem 'devise'
+gem 'cancan'
 
 # Common
 gem 'turbolinks'
