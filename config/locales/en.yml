@@ -33,3 +33,5 @@ en:
       email: "Email"
       password: "Password"
       password_confirmation: "Confirm password"
+    sign_out:
+      title: "Sign out"

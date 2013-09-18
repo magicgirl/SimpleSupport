@@ -17,4 +17,5 @@
             %li
               = link_to t('sessions.sign_up.title'), new_user_registration_path
     .container
+      = render partial: 'shared/alerts'
       = yield
