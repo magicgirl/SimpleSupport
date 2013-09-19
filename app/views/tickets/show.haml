@@ -11,27 +11,21 @@
     %section.widget
       %header
         %h4
-          %i.eicon-chat
-          Chat
+          %i.icon-chat
+          = t 'tickets.show.comments'
       .body
         .margin-bottom
-          .row-fluid
-            .span10
-              %textarea.input-block-level.autogrow{rows: 1}
-            .span2
-              %button.btn.btn-transparent.input-block-level{type: "button"} Send
+          = form_for :ticket_comment, url: ticket_comments_path, html: {id: 'new_ticket_comment'}, remote: true do |f|
+            .row-fluid
+              .span10
+                = f.text_area :message, class: 'input-block-level autogrow', rows: 1, id: 'comment-message'
+                = f.hidden_field :ticket_id, value: @ticket.id
+              .span2
+                = f.button t('tickets.show.send_comment'), class: 'btn btn-transparent input-block-level', type: 'submit'
         .chat
-          .chat-messages
+          #ticket-comments.chat-messages
             - @ticket.recent_ticket_comments.each do |ticket_comment|
-              .chat-message
-                .sender.pull-left
-                  .icon= image_tag('unkown_avatar.gif', class: 'img-circle')
-                  .time= ticket_comment.short_created_at
-                .chat-message-body
-                  %span.arrow
-                  .sender
-                    %a{href: "#"}= ticket_comment.user.email
-                  .text= ticket_comment.message
+              = render partial: 'comment', locals: {ticket_comment: ticket_comment}
               -#.chat-message
               -#  .sender{class: current_user != ticket_comment.user ? 'pull-left' : 'pull-right'}
               -#    .icon= image_tag('unkown_avatar.gif', class: 'img-circle')

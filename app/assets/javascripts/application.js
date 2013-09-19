@@ -9,3 +9,4 @@
 //= require jquery/jquery_slimscroll
 //= require bootstrap/bootstrap
 //= require app
+//= require tickets

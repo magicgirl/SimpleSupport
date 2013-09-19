@@ -41,3 +41,5 @@ en:
         area: "Area"
     show:
       ticket_no: "Ticket #%{id}"
+      comments: "Comments"
+      send_comment: "Send"

@@ -10,5 +10,5 @@ SimpleSupport::Application.routes.draw do
   resources :support_areas, only: [] do
     resources :tickets, only: [:index]
   end
-
+  resources :ticket_comments, only: [:create]
 end
