@@ -6,20 +6,18 @@
         %table.table.table-striped
           %thead
             %tr
-              %th #
-              %th First Name
-              %th Last Name
-              %th Email
-              %th Status
-              %th
+              %th{style: 'width: 30px'} #
+              %th= t 'tickets.list.column.title'
+              %th{style: 'width: 200px'}= t 'tickets.list.column.from'
+              %th{style: 'width: 150px'}= t 'tickets.list.column.date'
+              %th{style: 'width: 80px'}= t 'tickets.list.column.status'
           %tbody
-            %tr
-              %td 1
-              %td Mark
-              %td Otto
-              %td ottoto@example.com
-              %td
-                %span.badge.badge-success New
-              %td
-                %button.btn.btn-sm.btn-primary
-                  Show
+            - @tickets.each do |ticket|
+              %tr
+                %td= ticket.id
+                %td
+                  %a{href: ''}= ticket.title
+                %td= ticket.user.email
+                %td= ticket.created_date
+                %td
+                  %span.badge.badge-success New
