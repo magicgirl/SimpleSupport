@@ -105,6 +105,16 @@ $(function(){
         stylesheets: [],
         lists: false
     });
+
+    $("#chat-messages").slimscroll({
+        height: '350px',
+        size: '5px',
+        alwaysVisible: true,
+        railVisible: true
+    });
+
+    $('.autogrow').autogrow();
+
 //
 //    $(".iCheck").iCheck({
 //        checkboxClass: 'icheckbox_square-grey',

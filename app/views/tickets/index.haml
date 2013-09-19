@@ -15,7 +15,7 @@
               %th{style: 'width: 220px'}= t 'tickets.list.column.area'
               %th{style: 'width: 200px'}= t 'tickets.list.column.from'
               %th{style: 'width: 150px'}= t 'tickets.list.column.date'
-              %th{style: 'width: 80px'}= t 'tickets.list.column.status'
+              -#%th{style: 'width: 80px'}= t 'tickets.list.column.status'
           %tbody
             - @tickets.each do |ticket|
               %tr
@@ -28,5 +28,5 @@
                     = t 'dashboard.sidebar.my_tickets'
                 %td= ticket.user.email
                 %td= ticket.created_date
-                %td
-                  %span.badge.badge-success New
+                -#%td
+                -#  %span.badge.badge-success New

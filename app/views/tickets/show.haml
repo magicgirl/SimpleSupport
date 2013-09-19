@@ -8,3 +8,36 @@
           = @ticket.title
         %div
           = @ticket.message.html_safe
+    %section.widget
+      %header
+        %h4
+          %i.eicon-chat
+          Chat
+      .body
+        .margin-bottom
+          .row-fluid
+            .span10
+              %textarea.input-block-level.autogrow{rows: 1}
+            .span2
+              %button.btn.btn-transparent.input-block-level{type: "button"} Send
+        .chat
+          .chat-messages
+            - @ticket.recent_ticket_comments.each do |ticket_comment|
+              .chat-message
+                .sender.pull-left
+                  .icon= image_tag('unkown_avatar.gif', class: 'img-circle')
+                  .time= ticket_comment.short_created_at
+                .chat-message-body
+                  %span.arrow
+                  .sender
+                    %a{href: "#"}= ticket_comment.user.email
+                  .text= ticket_comment.message
+              -#.chat-message
+              -#  .sender{class: current_user != ticket_comment.user ? 'pull-left' : 'pull-right'}
+              -#    .icon= image_tag('unkown_avatar.gif', class: 'img-circle')
+              -#    .time= ticket_comment.short_created_at
+              -#  .chat-message-body{class: current_user != ticket_comment.user ? '' : 'on-left'}
+              -#    %span.arrow
+              -#    .sender
+              -#      %a{href: "#"}= ticket_comment.user.email
+              -#    .text= ticket_comment.message

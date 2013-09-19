@@ -3,7 +3,9 @@
 //= require turbolinks
 //= require jquery.turbolinks
 //= require jquery/jquery-migrate.min
+//= require jquery/jquery-ui
 //= require jquery/wysihtml5
 //= require jquery/jquery.autogrow-textarea
+//= require jquery/jquery_slimscroll
 //= require bootstrap/bootstrap
 //= require app
