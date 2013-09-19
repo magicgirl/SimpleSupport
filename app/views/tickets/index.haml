@@ -2,7 +2,11 @@
   .span12
     %section.widget
       .body.no-margin
-        %legend= t('dashboard.sidebar.my_tickets')
+        %legend
+          - if @support_area
+            = @support_area.title
+          - else
+            = t('dashboard.sidebar.my_tickets')
         %table.table.table-striped
           %thead
             %tr

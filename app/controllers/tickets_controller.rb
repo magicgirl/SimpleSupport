@@ -1,7 +1,12 @@
 class TicketsController < ApplicationController
 
   def index
-    @tickets = current_user.recent_tickets
+    if params[:support_area_id].present?
+      @support_area = SupportArea.find(params[:support_area_id])
+      @tickets = @support_area.recent_tickets
+    else
+      @tickets = current_user.recent_tickets
+    end
   end
 
   def show

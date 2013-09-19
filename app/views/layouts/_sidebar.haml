@@ -4,8 +4,8 @@
   %a.accordion-toggle{"data-parent" => "#side-nav", "data-toggle" => "collapse", href: "#tickets-collapse"}
     %span.name= t('dashboard.sidebar.tickets')
   %ul#tickets-collapse.accordion-body{class: active('tickets', except_actions: ['new']) == 'active' ? 'in' : 'collapse'}
-    %li{class: sub_active('tickets#index')}
+    %li{class: support_area_active}
       = link_to t('dashboard.sidebar.my_tickets'), tickets_path
     - current_user.support_areas.each do |support_area|
-      %li
-        = link_to support_area.title, ''
+      %li{class: support_area_active(support_area.id)}
+        = link_to support_area.title, support_area_tickets_path(support_area)

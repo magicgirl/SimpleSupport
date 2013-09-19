@@ -7,4 +7,8 @@ SimpleSupport::Application.routes.draw do
 
   root 'dashboard#index'
   resources :tickets, only: [:index, :show, :new, :create]
+  resources :support_areas, only: [] do
+    resources :tickets, only: [:index]
+  end
+
 end
