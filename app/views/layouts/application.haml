@@ -4,29 +4,9 @@
   %body.background-dark
     .logo
       %h4= link_to t('app.title'), root_path
-    -#%nav#sidebar.sidebar.nav-collapse.collapse
-    -#  %ul#side-nav.side-nav
-    -#    %li.active.accordion-group
-    -#      %a.accordion-toggle{"data-parent" => "#side-nav", "data-toggle" => "collapse", href: "#forms-collapse"}
-    -#        %i.icon-edit
-    -#        %span.name Forms
-    -#      %ul#forms-collapse.accordion-body.collapse.in
-    -#        %li
-    -#          %a{href: "form_account.html"} Account
-    -#        %li.active
-    -#          %a{href: "form_elements.html"} Elements
-    -#        %li
-    -#          %a{href: "form_validation.html"} Validation
     %nav#sidebar.sidebar.nav-collapse.collapse
       %ul#side-nav.side-nav
-        %li{class: sub_active('tickets#new')}
-          = link_to t('dashboard.sidebar.new_ticket'), new_ticket_path
-        %li.accordion-toggle{class: sub_active('tickets#index')}
-          %a.accordion-toggle{"data-parent" => "#side-nav", "data-toggle" => "collapse", href: "#tickets-collapse"}
-            %span.name= t('dashboard.sidebar.tickets')
-          %ul#tickets-collapse.accordion-body{class: sub_active('tickets#index') == 'active' ? 'in' : 'collapse'}
-            %li{class: sub_active('tickets#index')}
-              = link_to t('dashboard.sidebar.my_tickets'), tickets_path
+        = render partial: 'layouts/sidebar'
     .wrap
       %header.page-header
         .navbar

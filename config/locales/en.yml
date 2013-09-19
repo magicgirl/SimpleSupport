@@ -30,6 +30,7 @@ en:
       fields:
         title: "Title"
         message: "Message"
+      submit: "Create"
     list:
       column:
         title: "Title"
