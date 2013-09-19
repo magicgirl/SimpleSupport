@@ -1,0 +1,9 @@
+.chat-message
+  .sender.pull-left
+    .icon= image_tag('unkown_avatar.gif', class: 'img-circle')
+    .time= ticket_comment.short_created_at
+  .chat-message-body
+    %span.arrow
+    .sender
+      %a{href: "#"}= ticket_comment.user.email
+    .text= ticket_comment.message
