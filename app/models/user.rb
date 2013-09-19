@@ -6,4 +6,8 @@ class User < ActiveRecord::Base
 
   has_many :tickets
   has_and_belongs_to_many :support_areas
+
+  def recent_tickets
+    tickets.order('created_at DESC')
+  end
 end

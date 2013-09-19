@@ -30,6 +30,7 @@ en:
       fields:
         title: "Title"
         message: "Message"
+        support_area: "Support Area"
       submit: "Create"
     list:
       column:
@@ -37,5 +38,6 @@ en:
         from: "From"
         date: "Date"
         status: "Status"
+        area: "Area"
     show:
       ticket_no: "Ticket #%{id}"

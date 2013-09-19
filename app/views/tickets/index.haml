@@ -8,6 +8,7 @@
             %tr
               %th{style: 'width: 30px'} #
               %th= t 'tickets.list.column.title'
+              %th{style: 'width: 220px'}= t 'tickets.list.column.area'
               %th{style: 'width: 200px'}= t 'tickets.list.column.from'
               %th{style: 'width: 150px'}= t 'tickets.list.column.date'
               %th{style: 'width: 80px'}= t 'tickets.list.column.status'
@@ -16,6 +17,11 @@
               %tr
                 %td= ticket.id
                 %td= link_to ticket.title, ticket_path(ticket)
+                %td
+                  - if ticket.support_area.present?
+                    = ticket.support_area.title
+                  - else
+                    = t 'dashboard.sidebar.my_tickets'
                 %td= ticket.user.email
                 %td= ticket.created_date
                 %td

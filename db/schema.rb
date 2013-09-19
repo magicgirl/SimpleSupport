@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130919062139) do
+ActiveRecord::Schema.define(version: 20130919132601) do
 
   create_table "rails_admin_histories", force: true do |t|
     t.text     "message"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20130919062139) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "support_area_id"
   end
 
   create_table "users", force: true do |t|
