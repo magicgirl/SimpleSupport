@@ -2,8 +2,13 @@
   .span12
     %section.widget
       .body.no-margin
+        %legend= t('tickets.new.title')
         = form_for @ticket, url: tickets_path, html: {class: ''} do |f|
-          %legend= t('tickets.new.title')
+          - if @ticket.errors.present?
+            .alert.alert-danger
+              %ul
+              - @ticket.errors.full_messages.each do |error|
+                %li= error
           %fieldset
             .control-group
               = f.label :title, t('tickets.new.fields.title'), class: 'control-label'

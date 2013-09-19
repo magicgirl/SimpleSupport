@@ -1,7 +1,25 @@
 .row-fluid
   .span12
     %section.widget
-      %header
-        %h4 My Tickets
       .body.no-margin
-        body
+        %legend= t('dashboard.sidebar.my_tickets')
+        %table.table.table-striped
+          %thead
+            %tr
+              %th #
+              %th First Name
+              %th Last Name
+              %th Email
+              %th Status
+              %th
+          %tbody
+            %tr
+              %td 1
+              %td Mark
+              %td Otto
+              %td ottoto@example.com
+              %td
+                %span.badge.badge-success New
+              %td
+                %button.btn.btn-sm.btn-primary
+                  Show

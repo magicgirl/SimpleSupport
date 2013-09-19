@@ -9,7 +9,13 @@ class TicketsController < ApplicationController
   end
 
   def create
-
+    @ticket = Ticket.new(params.require(:ticket).permit(:title, :message).merge(user: current_user))
+    if @ticket.save
+      flash[:notice] = 'Ticket created!'
+      redirect_to root_path
+    else
+      render action: 'new'
+    end
   end
 
 end
