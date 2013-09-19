@@ -1,7 +1,7 @@
 class DashboardController < ApplicationController
 
   def index
-    @tickets = current_user.tickets
+    redirect_to tickets_path
   end
 
 end

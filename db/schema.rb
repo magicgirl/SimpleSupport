@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130918185516) do
+ActiveRecord::Schema.define(version: 20130919062139) do
 
   create_table "rails_admin_histories", force: true do |t|
     t.text     "message"
@@ -25,6 +25,20 @@ ActiveRecord::Schema.define(version: 20130918185516) do
   end
 
   add_index "rails_admin_histories", ["item", "table", "month", "year"], name: "index_rails_admin_histories", using: :btree
+
+  create_table "support_areas", force: true do |t|
+    t.string   "title"
+    t.string   "identifier"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "support_areas_users", id: false, force: true do |t|
+    t.integer "support_area_id"
+    t.integer "user_id"
+  end
+
+  add_index "support_areas_users", ["support_area_id", "user_id"], name: "index_support_areas_users_on_support_area_id_and_user_id", using: :btree
 
   create_table "tickets", force: true do |t|
     t.string   "title"

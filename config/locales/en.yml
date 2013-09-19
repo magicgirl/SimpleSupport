@@ -23,6 +23,7 @@ en:
     sidebar:
       my_tickets: "My Tickets"
       new_ticket: "New ticket"
+      tickets: "Tickets"
   tickets:
     new:
       title: "New ticket"
