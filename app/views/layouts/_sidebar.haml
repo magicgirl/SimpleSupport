@@ -6,3 +6,6 @@
   %ul#tickets-collapse.accordion-body{class: sub_active('tickets#index') == 'active' ? 'in' : 'collapse'}
     %li{class: sub_active('tickets#index')}
       = link_to t('dashboard.sidebar.my_tickets'), tickets_path
+    - current_user.support_areas.each do |support_area|
+      %li
+        = link_to support_area.title, ''
