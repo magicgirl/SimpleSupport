@@ -15,8 +15,7 @@
             - @tickets.each do |ticket|
               %tr
                 %td= ticket.id
-                %td
-                  %a{href: ''}= ticket.title
+                %td= link_to ticket.title, ticket_path(ticket)
                 %td= ticket.user.email
                 %td= ticket.created_date
                 %td

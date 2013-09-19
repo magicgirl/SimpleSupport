@@ -15,12 +15,13 @@ gem 'sass-rails', '~> 4.0.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'haml-rails'
+gem 'turbolinks'
+gem 'jquery-turbolinks'
 
 # Auth
 gem 'devise'
 gem 'cancan'
 
 # Common
-gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'quiet_assets', group: :development

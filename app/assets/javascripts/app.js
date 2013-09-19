@@ -10,8 +10,6 @@ $(function(){
 //    $('.selectpicker + .bootstrap-select span.caret').replaceWith("<i class='icon-caret-down'></i>");
 //    $('.selectpicker + .bootstrap-select span.pull-left').removeClass("pull-left");
 //
-//    $(".autogrow").autogrow();
-
     var customWysihtml5Templates = {
         "font-styles": function(locale) {
             return "<li class='dropdown'>" +
@@ -102,9 +100,10 @@ $(function(){
     };
 
     $(".wysiwyg").wysihtml5({
-        html: true,
+//        html: true,
         customTemplates: customWysihtml5Templates,
-        stylesheets: []
+        stylesheets: [],
+        lists: false
     });
 //
 //    $(".iCheck").iCheck({

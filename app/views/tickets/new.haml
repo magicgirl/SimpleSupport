@@ -17,7 +17,7 @@
             .control-group
               = f.label :message, t('tickets.new.fields.message'), class: 'control-label'
               .controls
-                = f.text_area :message, class: 'input-block-level wysiwyg', rows: 4
+                = f.text_area :message, class: 'input-block-level wysiwyg', rows: 10
           .form-actions
             %div
               %button.btn.btn-primary{type: "submit"}= t('tickets.new.submit')

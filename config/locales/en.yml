@@ -37,3 +37,5 @@ en:
         from: "From"
         date: "Date"
         status: "Status"
+    show:
+      ticket_no: "Ticket #%{id}"

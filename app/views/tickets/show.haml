@@ -1,0 +1,10 @@
+.row-fluid
+  .span12
+    %section.widget
+      .body.no-margin
+        %legend
+          = t 'tickets.show.ticket_no', id: @ticket.id
+          \-
+          = @ticket.title
+        %div
+          = @ticket.message.html_safe
