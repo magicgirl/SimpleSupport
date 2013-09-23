@@ -3,7 +3,7 @@
   = render :partial => 'layouts/head'
   %body.background-dark
     .logo
-      %h4= link_to t('app.title'), root_path
+      %h4= link_to t('app.title') + " - #{current_user.email}", root_path
     %nav#sidebar.sidebar.nav-collapse.collapse
       %ul#side-nav.side-nav
         = render partial: 'layouts/sidebar'
@@ -12,7 +12,7 @@
         .navbar
           .navbar-inner
             %ul.nav.pull-right
-              %li.hidden-phone
+              %li
                 = link_to destroy_user_session_path, method: :delete do
                   %i.icon-signout
       .content.container-fluid

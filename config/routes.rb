@@ -5,7 +5,7 @@ SimpleSupport::Application.routes.draw do
       registrations: 'users/registrations'
   }
 
-  root 'dashboard#index'
+  root 'tickets#index'
   resources :tickets, only: [:index, :show, :new, :create]
   resources :support_areas, only: [] do
     resources :tickets, only: [:index]
