@@ -1,8 +1,19 @@
 !!!
 %html
   = render :partial => 'layouts/head'
-  %body
-    .single-widget-container
-      %section.widget.login-widget
-        = render partial: 'shared/alerts'
-        = yield
+  %body.login-layout
+    .main-container
+      .main-content
+        .row
+          .col-sm-10.col-sm-offset-1
+            .login-container
+              .center
+                %h1
+                  %i.icon-leaf.green
+                  %span.red Simple
+                  %span.white Support
+                %h4.blue © TransactPRO
+              .space-6
+              .position-relative
+                = render partial: 'shared/alerts'
+                = yield

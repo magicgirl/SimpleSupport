@@ -1,5 +1,7 @@
 /*
+*= require ace/bootstrap
 *= require font-awesome
-*= require light_blue.min
+*= require ace/ace
+*= require ace/ace-skins
 *= require_self
 */
