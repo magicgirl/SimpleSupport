@@ -46,3 +46,8 @@ en:
       ticket_no: "Ticket #%{id}"
       comments: "Comments"
       send_comment: "Send"
+    title: "Tickets"
+  navbar:
+    welcome: "Welcome"
+    user:
+      logout: "Logout"

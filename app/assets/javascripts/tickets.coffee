@@ -5,3 +5,6 @@ $(document).on('ajax:success', '#new_ticket_comment', (event, data, status, xhr)
 
 ).bind "ajax:error", (e, xhr, status, error) ->
   console.log 'error'
+
+$(document).ready ->
+  $('textarea[class*=autosize]').autosize({append: "\n"});

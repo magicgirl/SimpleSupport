@@ -7,6 +7,6 @@ class TicketComment < ActiveRecord::Base
   validates :message, presence: true, length: {minimum: 1}
 
   def short_created_at
-    created_at.strftime("%e/%b %k:%M")
+    created_at.strftime("%e/%b %k:%M:%S")
   end
 end

@@ -1,20 +1,40 @@
 !!!
 %html
   = render :partial => 'layouts/head'
-  %body.background-dark
-    .logo
-      %h4= link_to t('app.title') + " - #{current_user.email}", root_path
-    %nav#sidebar.sidebar.nav-collapse.collapse
-      %ul#side-nav.side-nav
+  %body.skin-3
+    #navbar.navbar.navbar-default
+      #navbar-container.navbar-container.container
+        .navbar-header.pull-left
+          %a.navbar-brand{href: root_path}
+            %small
+              %i.icon-leaf
+              = t('app.title')
+
+        .navbar-header.pull-right{role: 'navigation'}
+          %ul.nav.ace-nav
+            %li.light-blue
+              %a.dropdown-toggle{'data-toggle' => 'dropdown', href: '#'}
+                %i.icon-user
+                %span.user-info
+                  %small
+                    = t('navbar.welcome') + ','
+                  = current_user.email
+                %i.icon-caret-down
+              %ul.user-menu.pull-right.dropdown-menu.dropdown-yellow.dropdown-caret.dropdown-close
+                %li
+                  %a{href: '#'}
+                    %i.icon-user
+                    Profile
+                %li.divider
+                %li
+                  = link_to destroy_user_session_path, method: :delete do
+                    %i.icon-off
+                    = t 'navbar.user.logout'
+    #main-container.main-container.container
+      .main-container-inner
+        %a#menu-toggler.menu-toggler{href: '#'}
+          %span.menu-text
         = render partial: 'layouts/sidebar'
-    .wrap
-      %header.page-header
-        .navbar
-          .navbar-inner
-            %ul.nav.pull-right
-              %li
-                = link_to destroy_user_session_path, method: :delete do
-                  %i.icon-signout
-      .content.container-fluid
-        = render partial: 'shared/alerts'
-        = yield
+        .main-content
+          = render partial: 'shared/alerts'
+          = yield

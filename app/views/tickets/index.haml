@@ -1,32 +1,31 @@
-.row-fluid
-  .span12
-    %section.widget
-      .body.no-margin
-        %legend
-          - if @support_area
-            = @support_area.title
-          - else
-            = t('dashboard.sidebar.my_tickets')
-        %table.table.table-striped
-          %thead
+#breadcrumbs.breadcrumbs
+  %ul.breadcrumb
+    %li= t 'tickets.title'
+    %li.active= @support_area.present? ? @support_area.title : t('dashboard.sidebar.my_tickets')
+
+.page-content
+  .row
+    .col-xs-12
+      %table.table.table-striped
+        %thead
+          %tr
+            %th{style: 'width: 30px'} #
+            %th= t 'tickets.list.column.title'
+            %th{style: 'width: 220px'}= t 'tickets.list.column.area'
+            %th{style: 'width: 200px'}= t 'tickets.list.column.from'
+            %th{style: 'width: 150px'}= t 'tickets.list.column.date'
+            -#%th{style: 'width: 80px'}= t 'tickets.list.column.status'
+        %tbody
+          - @tickets.each do |ticket|
             %tr
-              %th{style: 'width: 30px'} #
-              %th= t 'tickets.list.column.title'
-              %th{style: 'width: 220px'}= t 'tickets.list.column.area'
-              %th{style: 'width: 200px'}= t 'tickets.list.column.from'
-              %th{style: 'width: 150px'}= t 'tickets.list.column.date'
-              -#%th{style: 'width: 80px'}= t 'tickets.list.column.status'
-          %tbody
-            - @tickets.each do |ticket|
-              %tr
-                %td= ticket.id
-                %td= link_to ticket.title, ticket_path(ticket)
-                %td
-                  - if ticket.support_area.present?
-                    = ticket.support_area.title
-                  - else
-                    = t 'dashboard.sidebar.my_tickets'
-                %td= ticket.user.email
-                %td= ticket.created_date
-                -#%td
-                -#  %span.badge.badge-success New
+              %td= ticket.id
+              %td= link_to ticket.title, ticket_path(ticket)
+              %td
+                - if ticket.support_area.present?
+                  = ticket.support_area.title
+                - else
+                  = t 'dashboard.sidebar.my_tickets'
+              %td= ticket.user.email
+              %td= ticket.created_date
+              -#%td
+              -#  %span.badge.badge-success New

@@ -1,11 +1,22 @@
-%li{class: sub_active('tickets#new')}
-  = link_to t('dashboard.sidebar.new_ticket'), new_ticket_path
-%li.accordion-toggle{class: active('tickets', except_actions: ['new'])}
-  %a.accordion-toggle{"data-parent" => "#side-nav", "data-toggle" => "collapse", href: "#tickets-collapse"}
-    %span.name= t('dashboard.sidebar.tickets')
-  %ul#tickets-collapse.accordion-body{class: active('tickets', except_actions: ['new']) == 'active' ? 'in' : 'collapse'}
-    %li{class: support_area_active}
-      = link_to t('dashboard.sidebar.my_tickets'), tickets_path
-    - current_user.support_areas.each do |support_area|
-      %li{class: support_area_active(support_area.id)}
-        = link_to support_area.title, support_area_tickets_path(support_area)
+#sidebar.sidebar
+  %ul.nav.nav-list
+    %li{class: sub_active('tickets#new')}
+      = link_to new_ticket_path do
+        %i.icon-edit
+        = t('dashboard.sidebar.new_ticket')
+    %li{class: active('tickets', except_actions: %w(new))}
+      %a.dropdown-toggle{href: '#'}
+        %i.icon-list
+        %span= t('dashboard.sidebar.tickets')
+        %b.arrow.icon-angle-down
+      %ul.submenu
+        %li{class: support_area_active}
+          = link_to tickets_path do
+            %i.icon-double-angle-right
+            = t('dashboard.sidebar.my_tickets')
+        - current_user.support_areas.each do |support_area|
+          %li{class: support_area_active(support_area.id)}
+            = link_to support_area_tickets_path(support_area) do
+              %i.icon-double-angle-right
+              = support_area.title
+

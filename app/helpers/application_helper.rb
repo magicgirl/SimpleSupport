@@ -2,7 +2,7 @@ module ApplicationHelper
 
   def active(controller, args = {})
     except_actions = args[:except_actions].present? ? args[:except_actions] : []
-    controller == params['controller'] and (not except_actions.include?(params['action'])) ? 'active' : ''
+    controller == params['controller'] and (not except_actions.include?(params['action'])) ? 'active open' : ''
   end
 
   def sub_active(slug)

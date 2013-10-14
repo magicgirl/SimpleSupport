@@ -1,37 +1,29 @@
-.row-fluid
-  .span12
-    %section.widget
-      .body.no-margin
-        %legend
-          = t 'tickets.show.ticket_no', id: @ticket.id
-          \-
-          = @ticket.title
-        %div
-          = @ticket.message.html_safe
-    %section.widget
-      %header
-        %h4
-          %i.icon-chat
-          = t 'tickets.show.comments'
-      .body
-        .margin-bottom
+#breadcrumbs.breadcrumbs
+  %ul.breadcrumb
+    %li= t 'tickets.title'
+    %li.active
+      = t 'tickets.show.ticket_no', id: @ticket.id
+      \-
+      = @ticket.title
+.page-content
+  .row
+    .col-xs-12
+      .ticket-message.well= @ticket.message.html_safe
+      .row
+        .col-xs-12
+          %legend
+            %i.icon-chat
+            = t 'tickets.show.comments'
           = form_for :ticket_comment, url: ticket_comments_path, html: {id: 'new_ticket_comment'}, remote: true do |f|
-            .row-fluid
-              .span10
-                = f.text_area :message, class: 'input-block-level autogrow', rows: 1, id: 'comment-message'
-                = f.hidden_field :ticket_id, value: @ticket.id
-              .span2
-                = f.button t('tickets.show.send_comment'), class: 'btn btn-transparent input-block-level', type: 'submit'
-        .chat
-          #ticket-comments.chat-messages
+            .form-actions
+              .row
+                .col-sm-10
+                  = f.text_area :message, class: 'autosize-transition form-control', rows: 1, id: 'comment-message'
+                  = f.hidden_field :ticket_id, value: @ticket.id
+                .col-sm-2
+                  = f.button class: 'btn btn-sm btn-info no-radius', type: 'submit' do
+                    %i.icon-share-alt
+                    = t('tickets.show.send_comment')
+          #ticket-comments.dialogs
             - @ticket.recent_ticket_comments.each do |ticket_comment|
               = render partial: 'comment', locals: {ticket_comment: ticket_comment}
-              -#.chat-message
-              -#  .sender{class: current_user != ticket_comment.user ? 'pull-left' : 'pull-right'}
-              -#    .icon= image_tag('unkown_avatar.gif', class: 'img-circle')
-              -#    .time= ticket_comment.short_created_at
-              -#  .chat-message-body{class: current_user != ticket_comment.user ? '' : 'on-left'}
-              -#    %span.arrow
-              -#    .sender
-              -#      %a{href: "#"}= ticket_comment.user.email
-              -#    .text= ticket_comment.message

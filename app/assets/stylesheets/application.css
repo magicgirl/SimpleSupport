@@ -1,7 +1,15 @@
 /*
+* Ace styles
 *= require ace/bootstrap
-*= require font-awesome
+*= require ace/jquery-ui-1.10.3.custom.min.css
+*= require ace/jquery.gritter
 *= require ace/ace
 *= require ace/ace-skins
+*
+* App styles
+*= require ace/ace-fix
+*= require font-awesome
+*
+* Include all
 *= require_self
 */

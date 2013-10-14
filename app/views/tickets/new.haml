@@ -1,27 +1,29 @@
-.row-fluid
-  .span12
-    %section.widget
-      .body.no-margin
-        %legend= t('tickets.new.title')
-        = form_for @ticket, url: tickets_path, html: {class: ''} do |f|
-          - if @ticket.errors.present?
-            .alert.alert-danger
-              %ul
-              - @ticket.errors.full_messages.each do |error|
-                %li= error
-          %fieldset
-            .control-group
-              = f.label :support_area_id, t('tickets.new.fields.support_area'), class: 'control-label'
-              .controls
-                = f.select(:support_area_id, current_user.support_areas.collect {|s| [ s.title, s.id ] }, {include_blank: t('dashboard.sidebar.my_tickets')}, {class: "default-select select-block-level"})
-            .control-group
-              = f.label :title, t('tickets.new.fields.title'), class: 'control-label'
-              .controls
-                = f.text_field :title, class: 'input-block-level', placeholder: t('tickets.new.fields.title')
-            .control-group
-              = f.label :message, t('tickets.new.fields.message'), class: 'control-label'
-              .controls
-                = f.text_area :message, class: 'input-block-level wysiwyg', rows: 10
-          .form-actions
-            %div
-              %button.btn.btn-primary{type: "submit"}= t('tickets.new.submit')
+#breadcrumbs.breadcrumbs
+  %ul.breadcrumb
+    %li= t 'tickets.title'
+    %li.active= t('tickets.new.title')
+
+.page-content
+  .row
+    .col-xs-12
+      = form_for @ticket, url: tickets_path, html: {class: ''} do |f|
+        - if @ticket.errors.present?
+          .alert.alert-danger
+            %ul
+            - @ticket.errors.full_messages.each do |error|
+              %li= error
+        %div
+          = f.label :support_area_id, t('tickets.new.fields.support_area')
+          = f.select(:support_area_id, current_user.support_areas.collect {|s| [ s.title, s.id ] }, {include_blank: t('dashboard.sidebar.my_tickets')}, {class: 'form-control'})
+        %div
+          = f.label :title, t('tickets.new.fields.title')
+          = f.text_field :title, class: 'form-control', placeholder: t('tickets.new.fields.title')
+        .hr.hr-double.dotted
+        %div
+          = f.label :message, t('tickets.new.fields.message')
+          #ticket-text-editor.wysiwyg-editor
+          = f.text_area :message, class: 'hidden', rows: 0
+
+        .form-actions
+          %div
+            %button.btn.btn-primary{type: "submit"}= t('tickets.new.submit')
